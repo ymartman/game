@@ -1,10 +1,14 @@
-﻿namespace User.Control {
+﻿
 
 using UnityEngine;
 using System.Collections;
 using UnityStandardAssets.CrossPlatformInput;
 
+namespace User.Control {
+
 public class ThirdPersonUserController : MonoBehaviour {
+
+	private ControllerInformation controllerInformation = new ControllerInformation();
 
 	private Transform camera_Transform;
 	private bool is_Jump; 
@@ -31,12 +35,12 @@ public class ThirdPersonUserController : MonoBehaviour {
 
 		if (!is_Jump)
 		{
-			is_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
+			controllerInformation.IsJump = CrossPlatformInputManager.GetButtonDown("Jump");
 		}
 					
 		if (!is_Atack)
 		{
-			is_Atack = CrossPlatformInputManager.GetButtonDown("Jump");
+				controllerInformation.IsAtack = CrossPlatformInputManager.GetButtonDown("Atack");
 		}
 	
 	}
